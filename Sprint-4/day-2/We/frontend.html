@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, auto);
+        gap: 20px;
+      }
+      div{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+      p + img {
+        height: 50px;
+        margin-left: 27%;
+      }
+      p,h3{
+          text-align: center;
+      }
+      h1{
+          text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Frontend</h1>
+    <div id="container"></div>
+  </body>
+</html>
+
+<script>
+  var investorsArr = JSON.parse(localStorage.getItem("investorsData"));
+  console.log(investorsArr);
+  
+  investorsArr.forEach(function(elem) {
+      var box = document.createElement("div");
+      var img_url = document.createElement("img");
+      img_url.setAttribute("src",elem.investorImg);
+
+      var name = document.createElement("h3");
+      name.innerText = elem.investorName;
+
+      var role = document.createElement("p");
+      role.innerText = elem.investorRole;
+
+      var company_url = document.createElement("img");
+      company_url.setAttribute("src",elem.investorCompanyLogo);
+
+      box.append(img_url,name,role,company_url)
+      document.querySelector("#container").append(box);
+  });
+
+</script>
