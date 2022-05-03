@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <form action="">
+        <h1>Sign Up</h1>
+        <label for="name">User Name</label>
+        <input type="text" id="username" placeholder="User Name">
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" name="" id="email">
+        <label for="name">Password</label>
+        <input type="password" placeholder="Password" name="" id="password">
+        <button type="submit">Create Account</button>
+        <p>Already have a account? <a href="./signin.html"> Signin </a></p>
+
+    </form>
+</body>
+</html>
+<script>
+    let form=document.querySelector("form");
+    let LSData=JSON.parse(localStorage.getItem("userData"));
+    form.addEventListener("submit",function(event) {
+        event.preventDefault();
+        const data={
+        username:form.username.value,
+        email: form.email.value,
+        password:form.password.value,
+        }
+        if(LSData != null && LSData.email === data.email){
+            alert("Account already exist. Please Login");
+            return;
+        }
+
+        localStorage.setItem("userData",JSON.stringify(data));
+        alert("Signup successful. Please Signin")
+    })
+
+</script>

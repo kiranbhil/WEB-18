@@ -1,0 +1,21 @@
+.main {
+    margin:40px auto;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:30px;
+}
+.main > div{
+    background-color: white;
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+}
+.main > div > img{
+    width: 100%;
+}
+/* select{
+  font-size: 25px;
+  padding: 1% 10px;
+  width: 70%;
+  display: block;
+  margin: 30px auto;
+} */

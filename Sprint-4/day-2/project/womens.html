@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Page</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="mens.css">
+    <script src="womens.js"></script>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <h1>Rebook</h1>
+        </div>
+  
+        <div class="text">
+            <h2 ><a href="mens.html">Men</a> </h2>
+            <h2><a href="womens.html">Women</a></h2>
+            <h2 ><a href="signin.html">Login</a></h2> 
+            <h2 ><a href="signup.html">SignUp</a></h2>
+        </div>
+    </div>
+    <div class="main">
+      
+    </div>
+</body>
+</html>
+<script>
+    var womansArr = JSON.parse(localStorage.getItem("womensProduct"));
+displayData(womansArr);
+// console.log(womansArr);
+  
+function displayData(data){
+    data.forEach(function(element){
+    var prod= document.createElement("div");
+
+    var image=document.createElement("img");
+    image.src=element.image_url;
+
+    var name=document.createElement("p");
+    name.textContent = element.name;
+
+    var price=document.createElement("p");
+    price.textContent=element.price;
+
+    var cartAdd=document.createElement("button");
+    cartAdd.textContent="Add to cart";
+    cartAdd.style.cursor = "pointer";
+    // cartAdd.addEventListener("click",function(){
+    //   addToCart(element);
+    // })
+
+    prod.append(image,name,price,cartAdd);
+    document.querySelector(".main").append(prod);
+   })
+  }
+
+</script>
